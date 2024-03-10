@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: linear-gradient(to bottom, #0b7ad1, #0a5997);
+
+  h1 {
+    font-size: 1.5em;
+    font-family: "Madimi One", sans-serif;
+    color: #fff;
+  }
+}

@@ -1,0 +1,95 @@
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Madimi One", sans-serif;
+    color: #333333;
+    border-bottom: 1px solid #343f56;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+
+    label {
+      margin-bottom: 8px;
+      font-family: "Roboto", sans-serif;
+      color: #333333;
+      width: 100%;
+      text-align: left;
+    }
+
+    input {
+      height: 40px;
+      padding: 0 8px;
+      margin-bottom: 16px;
+      font-family: "Roboto", sans-serif;
+      color: #333333;
+      border: none;
+      box-shadow: 0 0 4px #343f56;
+      border-radius: 8px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    article {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      margin-top: 16px;
+
+      button {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        border-radius: 8px;
+        width: 130px;
+        padding: 0px 8px;
+      }
+    }
+  }
+
+  p-table {
+    width: 100%;
+
+    tr {
+      height: 40px;
+
+      th, td {
+        text-align: center;
+      }
+    }
+  }
+
+  .wrapper_teams {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    gap: 16px;
+
+    .btn_wrapper {
+      display: flex;
+      justify-content: center;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+
+    .list_wrapper {
+      width: 100%;
+    }
+  }
+}

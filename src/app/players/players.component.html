@@ -1,0 +1,101 @@
+<main>
+  <ng-container *ngIf="!showteamsList">
+    <nav>
+      cadastre os jogadores
+    </nav>
+
+    <section>
+      <label for="player">*Jogadores por time:</label>
+      <input
+        type="text"
+        pInputText
+        placeholder="Digite..."
+        [(ngModel)]="quantity"
+        (input)="onQuantityChange($event)"
+      />
+      <label for="player">*Nome do jogador:</label>
+      <input
+        type="text"
+        pInputText
+        id="player"
+        [(ngModel)]="player.name"
+        (input)="onPlayerChange($event)"
+        placeholder="digite..."
+      />
+      <label for="player">*Player style:</label>
+      <input
+        type="text"
+        pInputText
+        id="style"
+        [(ngModel)]="player.style"
+        (input)="onPlayerStyleChange($event)"
+        placeholder="digite..."
+      />
+
+      <article>
+        <button
+          pButton
+          label="adicionar"
+          iconPos="left"
+          icon="pi pi-check"
+          (click)="onAddPlayer()"
+        ></button>
+
+        <button
+          pButton
+          label="Criar times"
+          (click)="createTeams()"
+          [disabled]="playersList.length < 10"
+        ></button>
+      </article>
+    </section>
+
+    <p-table [value]="playersList" styleClass="p-datatable-striped">
+      <ng-template pTemplate="header" style="text-align: center;">
+        <tr>
+          <th>Icone</th>
+          <th>Nome</th>
+          <th>Style</th>
+          <th>Remover</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-player>
+        <tr>
+          <td>
+            <i class="pi pi-user"></i>
+          </td>
+          <td>{{player.name}}</td>
+          <td>{{player.style}}</td>
+          <td>
+            <p-button
+              icon="pi pi-times"
+              [rounded]="true"
+              [text]="true"
+              severity="danger"
+              (click)="onRemovePlayer(player)"
+            ></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-container>
+
+  <ng-container *ngIf="showteamsList">
+    <section class="wrapper_teams">
+      <div class="btn_wrapper">
+        <button
+          pButton
+          label="Embaralhar de novo"
+          (click)="createTeams()"
+        ></button>
+      </div>
+
+      <div *ngFor="let team of teamsList; let i = index" class="list_wrapper">
+        <h2>{{"Time " + i+1}}</h2>
+        <ul>
+          <li *ngFor="let player of team">{{ player.name }}</li>
+        </ul>
+      </div>
+    </section>
+  </ng-container>
+</main>
